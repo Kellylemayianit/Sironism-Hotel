@@ -3,7 +3,7 @@
 try {
     require './phpmailer/PHPMailerAutoload.php';
 
-    $recipients = $_POST['recipients'];
+    $recipients = $_POST['kellylemayian6@gmail.com'];
 
     unset($_POST['recipients']);
 
