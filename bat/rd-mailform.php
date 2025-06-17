@@ -3,10 +3,10 @@
 try {
     require './phpmailer/PHPMailerAutoload.php';
 
-    $recipients = $_POST['kellylemayian6@gmail.com'];
+     $recipients = $_POST['recipients'];
 
     unset($_POST['recipients']);
-
+    
     preg_match_all("/([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)/", $recipients, $addresses, PREG_OFFSET_CAPTURE);
 
     if (!count($addresses[0])) {
@@ -104,6 +104,20 @@ try {
     $mail->MsgHTML($template);
     $mail->send();
 
+       $mail->isSMTP();
+       $mail->Host = 'smtp.gmail.com';
+       $mail->SMTPAuth = true;
+       $mail->Username = 'kellylemayian6@gmail.com';
+       $mail->Password = 'lzdo mrjn umie xfzz';
+       $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS; // or PHPMailer::ENCRYPTION_STARTTLS
+       $mail->Port = 465; // or 587
+    
+    // --- ADD THESE TWO LINES FOR DEBUGGING ---
+$mail->SMTPDebug = 2; // Enable verbose debug output (2 shows client and server responses)
+$mail->Debugoutput = 'html'; // Output debug info as HTML for browser viewing
+// --- END DEBUGGING LINES ---
+    
+    
     die('MF000');
 } catch (phpmailerException $e) {
     die('MF254');
