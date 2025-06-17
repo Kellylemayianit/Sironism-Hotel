@@ -222,13 +222,15 @@
                 <div class="cell-sm-8 cell-md-4 wow fadeInUp" data-wow-delay=".3s">
                   <div class="page-footer-minimal-inner-subscribe">
                     <h4>Join Our Newsletter</h4>
-                    <form class="rd-mailform rd-mailform-inline form-center" data-form-output="form-output-global" data-form-type="subscribe" method="post" action="bat/rd-mailform.php">
-                      <div class="form-wrap">
+                    <form class="rd-mailform rd-mailform-inline form-center" data-form-output="form-output-global" data-form-type="subscribe" id="newsletterForm">
+                  <div class="form-wrap">
                         <input class="form-input" id="subscribe-email" type="email" name="email" data-constraints="@Email @Required">
                         <label class="form-label" for="subscribe-email">Enter your e-mail</label>
-                      </div>
-                      <button class="button button-primary-2 button-effect-ujarak button-square" type="submit"><span>Subscribe</span></button>
+                  </div>
+                        <button class="button button-primary-2 button-effect-ujarak button-square" type="submit"><span>Subscribe</span></button>
+                        <input type="hidden" name="formType" value="newsletter">
                     </form>
+                    <div id="newsletterFormStatus" class="form-output-global"></div>
                   </div>
                 </div>
               </div>
@@ -274,61 +276,88 @@
     <script src="js/core.min.js"></script>
     <script src="js/script.js"></script>
 
-    <script>
-        // ** IMPORTANT: Replace 'YOUR_WEB_APP_URL_FROM_GOOGLE_APPS_SCRIPT' with your actual deployed Apps Script URL **
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbxJdbtt1063BtOFN21DhvugfS98YilCBENDnwVGpmTVgGRANQBVL7LHbprUpA7a9bfHbw/exec';
-        const contactForm = document.getElementById('contactForm'); // Changed variable name to be more specific
-        const formStatusOutput = document.getElementById('formStatus'); // Changed variable name to be more specific
+   <script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbxJdbtt1063BtOFN21DhvugfS98YilCBENDnwVGpmTVgGRANQBVL7LHbprUpA7a9bfHbw/exec'; // Your actual script URL
 
-        if (contactForm) { // Check if the contact form exists on the page
-            contactForm.addEventListener('submit', e => {
-                e.preventDefault(); // Prevent the default form submission (which would go to PHP)
+    // Contact Form setup
+    const contactForm = document.getElementById('contactForm');
+    const contactFormStatus = document.getElementById('formStatus'); // Renamed for clarity
 
-                const formData = new FormData(contactForm);
-                const data = Object.fromEntries(formData);
+    if (contactForm) {
+        contactForm.addEventListener('submit', e => {
+            e.preventDefault();
+            const formData = new FormData(contactForm);
+            const data = Object.fromEntries(formData);
+            contactFormStatus.innerHTML = '<div class="alert alert-info">Sending message...</div>';
 
-                // Show a loading message in the form status area
-                formStatusOutput.innerHTML = '<div class="alert alert-info">Sending message...</div>';
-
-                fetch(scriptURL, {
-                    method: 'POST',
-                    body: new URLSearchParams(data), // Send data as URL-encoded form data
-                    headers: {
-                        "Content-Type": "application/x-www-form-urlencoded"
-                    }
-                })
-                .then(response => {
-                    // Check if the network request itself was successful
-                    if (!response.ok) {
-                        throw new Error(`HTTP error! status: ${response.status}`);
-                    }
-                    return response.text(); // Get the response body as text
-                })
-                .then(text => {
-                    if (text.trim() === "success") { // Check for the "success" string returned by Apps Script
-                        formStatusOutput.innerHTML = '<div class="alert alert-success">Thank you! Your message has been sent.</div>';
-                        contactForm.reset(); // Clear the form fields
-                    } else {
-                        formStatusOutput.innerHTML = '<div class="alert alert-danger">Oops! There was an error submitting your form. Please try again.</div>';
-                        console.error('Apps Script Response:', text); // Log the full response for debugging
-                    }
-                })
-                .catch(error => {
-                    console.error('Fetch Error:', error.message);
-                    formStatusOutput.innerHTML = '<div class="alert alert-danger">Network error or script issue: ' + error.message + ' Please try again later.</div>';
-                });
+            fetch(scriptURL, {
+                method: 'POST',
+                body: new URLSearchParams(data),
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded"
+                }
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.text();
+            })
+            .then(text => {
+                if (text.trim() === "success") {
+                    contactFormStatus.innerHTML = '<div class="alert alert-success">Thank you! Your message has been sent.</div>';
+                    contactForm.reset();
+                } else {
+                    contactFormStatus.innerHTML = '<div class="alert alert-danger">Oops! There was an error submitting your form. Please try again.</div>';
+                    console.error('Apps Script Response:', text);
+                }
+            })
+            .catch(error => {
+                console.error('Fetch Error:', error.message);
+                contactFormStatus.innerHTML = '<div class="alert alert-danger">Network error or script issue: ' + error.message + ' Please try again later.</div>';
             });
-        }
+        });
+    }
 
-        // --- IMPORTANT NOTE FOR THE NEWSLETTER FORM ---
-        // Your Newsletter form (form with data-form-type="subscribe") still has:
-        // action="bat/rd-mailform.php"
-        // If you want this form to also go to Google Sheets, you'll need to
-        // 1. Create a separate Google Sheet/Apps Script for it (or modify your existing one)
-        // 2. Give that form an ID (e.g., id="subscribeForm")
-        // 3. Add a separate JavaScript event listener for that form,
-        //    similar to the 'contactForm' one, but pointing to its own scriptURL.
-        // As it stands, the newsletter form will still try to hit your PHP script.
-    </script>
+    // Newsletter Form setup - NEW SECTION
+    const newsletterForm = document.getElementById('newsletterForm');
+    const newsletterFormStatus = document.getElementById('newsletterFormStatus'); // New status div for newsletter
+
+    if (newsletterForm) {
+        newsletterForm.addEventListener('submit', e => {
+            e.preventDefault();
+            const formData = new FormData(newsletterForm);
+            const data = Object.fromEntries(formData);
+            newsletterFormStatus.innerHTML = '<div class="alert alert-info">Subscribing...</div>';
+
+            fetch(scriptURL, {
+                method: 'POST',
+                body: new URLSearchParams(data),
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded"
+                }
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.text();
+            })
+            .then(text => {
+                if (text.trim() === "success") {
+                    newsletterFormStatus.innerHTML = '<div class="alert alert-success">Thank you for subscribing!</div>';
+                    newsletterForm.reset();
+                } else {
+                    newsletterFormStatus.innerHTML = '<div class="alert alert-danger">Oops! There was an error. Please try again.</div>';
+                    console.error('Apps Script Response:', text);
+                }
+            })
+            .catch(error => {
+                console.error('Fetch Error:', error.message);
+                newsletterFormStatus.innerHTML = '<div class="alert alert-danger">Network error: Could not connect. Please try again later.</div>';
+            });
+        });
+    }
+</script>
   </body>
 </html>
