@@ -265,12 +265,12 @@
     <script src="js/core.min.js"></script>
     <script src="js/script.js"></script>
 
-   <script>
+  <script>
     const scriptURL = 'https://script.google.com/macros/s/AKfycbxJdbtt1063BtOFN21DhvugfS98YilCBENDnwVGpmTVgGRANQBVL7LHbprUpA7a9bfHbw/exec'; // Your actual script URL
 
     // Contact Form setup
     const contactForm = document.getElementById('contactForm');
-    const contactFormStatus = document.getElementById('formStatus'); // Renamed for clarity
+    const contactFormStatus = document.getElementById('contactFormStatus'); // Changed 'formStatus' to 'contactFormStatus'
 
     if (contactForm) {
         contactForm.addEventListener('submit', e => {
@@ -308,9 +308,9 @@
         });
     }
 
-    // Newsletter Form setup - NEW SECTION
+    // Newsletter Form setup
     const newsletterForm = document.getElementById('newsletterForm');
-    const newsletterFormStatus = document.getElementById('newsletterFormStatus'); // New status div for newsletter
+    const newsletterFormStatus = document.getElementById('newsletterFormStatus');
 
     if (newsletterForm) {
         newsletterForm.addEventListener('submit', e => {
