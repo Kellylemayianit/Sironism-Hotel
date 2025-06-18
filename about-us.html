@@ -2,7 +2,7 @@
 <html class="wide wow-animation" lang="en">
   <head>
     <!-- Site Title-->
-    <title>About Us</title>
+    <title>Sironosim Gardens Hotel</title>
     <meta name="format-detection" content="telephone=no">
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -277,17 +277,19 @@
                     </ul>
                   </div>
                 </div>
-                <div class="cell-sm-8 cell-md-4 wow fadeInUp" data-wow-delay=".3s">
+               <div class="cell-sm-8 cell-md-4 wow fadeInUp" data-wow-delay=".3s">
                   <div class="page-footer-minimal-inner-subscribe">
                     <h4>Join Our Newsletter</h4>
-                    <!-- RD Mailform-->
-                    <form class="rd-mailform rd-mailform-inline form-center" data-form-output="form-output-global" data-form-type="subscribe" method="post" action="bat/rd-mailform.php">
-                      <div class="form-wrap">
-                        <input class="form-input" id="subscribe-email" type="email" name="email" data-constraints="@Email @Required">
-                        <label class="form-label" for="subscribe-email">Enter your e-mail</label>
-                      </div>
-                      <button class="button button-primary-2 button-effect-ujarak button-square" type="submit"><span>Subscribe</span></button>
+                    <form id="newsletterForm" class="your-newsletter-form-class" method="post" action="YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL">
+                      <input type="hidden" name="formType" value="newsletter">
+
+                        <div class="form-wrap">
+                          <label for="newsletter-email">Email Address</label>
+                          <input type="email" id="newsletter-email" name="email" required>
+                        </div>
+                      <button type="submit">Subscribe</button>
                     </form>
+                      <div id="newsletterFormStatus"></div>
                   </div>
                 </div>
               </div>
