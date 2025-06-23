@@ -128,7 +128,7 @@
               <div class="hotel-booking-form">
                 <h3>Book a Room</h3>
                 <!-- RD Mailform-->
-                <form class="rd-mailform" data-form-output="form-output-global" data-form-type="contact" method="post" action="bat/rd-mailform.php">
+                <form class="rd-mailform" data-form-output="form-output-global" data-form-type="contact" method="post" action="https://script.google.com/macros/s/AKfycbx6_B1uaYFGsou5LU0fIdlkoYOY8Mv4Y2YKDvXWyqKxNIffvPPt7GwEiYKa-THexUNJcw/exec">
                   <div class="range range-sm-bottom spacing-20">
                     <div class="cell-lg-12 cell-md-4">
                       <p class="text-uppercase">Your Name</p>
@@ -137,31 +137,43 @@
                         <label class="form-label" for="contact-first-name">Your Full Name</label>
                       </div>
                     </div>
+                        <div class="cell-lg-12 cell-md-4">
+                      <p class="text-uppercase">Phone</p>
+                      <div class="form-wrap">
+                        <input class="form-input" id="contact-first-name" type="text" name="phone" data-constraints="@Required">
+                        <label class="form-label" for="contact-first-name">Your Phone Number </label>
+                      </div>
+                    </div>
                     <div class="cell-lg-12 cell-md-4 cell-sm-6">
                       <p class="text-uppercase">Arrival</p>
                       <div class="form-wrap">
                         <label class="form-label form-label-icon" for="date-in"><span class="icon icon-primary fa-calendar"></span><span>Check-in Date</span></label>
-                        <input class="form-input" id="date-in" data-time-picker="date" type="text" name="date" data-constraints="@Required">
+                        <input class="form-input" id="date-in" data-time-picker="date" type="text" name="date in" data-constraints="@Required">
                       </div>
                     </div>
                     <div class="cell-lg-12 cell-md-4 cell-sm-6">
                       <p class="text-uppercase">Departure</p>
                       <div class="form-wrap">
                         <label class="form-label form-label-icon" for="date-out"><span class="icon icon-primary fa-calendar"></span><span>Check-out Date</span></label>
-                        <input class="form-input" id="date-out" data-time-picker="date" type="text" name="date" data-constraints="@Required">
+                        <input class="form-input" id="date-out" data-time-picker="date" type="text" name="date out" data-constraints="@Required">
                       </div>
                     </div>
                     <div class="cell-lg-6 cell-md-4 cell-xs-6">
                       <p class="text-uppercase">Adults</p>
                       <div class="form-wrap form-wrap-validation">
                         <!--Select 2-->
-                        <select class="form-input select-filter" data-minimum-results-search="-1" data-placeholder="1" data-constraints="@Required">
+                        <select class="form-input select-filter" data-minimum-results-search="-1" data-placeholder="1" name="adults" data-constraints="@Required">
                           <option>&nbsp;</option>
                           <option value="1">1</option>
                           <option value="2">2</option>
                           <option value="3">3</option>
                           <option value="4">4</option>
                           <option value="5">5</option>
+                          <option value="3">6</option>
+                          <option value="3">7</option>
+                          <option value="3">8</option>
+                          <option value="3">9</option>
+                          <option value="3">10</option>
                         </select>
                       </div>
                     </div>
@@ -169,13 +181,19 @@
                       <p class="text-uppercase">Children</p>
                       <div class="form-wrap form-wrap-validation">
                         <!--Select 2-->
-                        <select class="form-input select-filter" data-minimum-results-search="-1" data-placeholder="0" data-constraints="@Required">
+                        <select class="form-input select-filter" data-minimum-results-search="-1" data-placeholder="0" name="children" data-constraints="@Required">
                           <option>&nbsp;</option>
                           <option value="1">0</option>
                           <option value="2">1</option>
                           <option value="3">2</option>
                           <option value="4">3</option>
                           <option value="5">4</option>
+                          <option value="3">5</option>
+                          <option value="3">6</option>
+                          <option value="3">7</option>
+                          <option value="3">8</option>
+                          <option value="3">9</option>
+                          <option value="3">10</option>
                         </select>
                       </div>
                     </div>
@@ -336,7 +354,7 @@
                   <div class="page-footer-minimal-inner-subscribe">
                     <h4>Join Our Newsletter</h4>
                     <!-- RD Mailform-->
-                    <form class="rd-mailform rd-mailform-inline form-center" data-form-output="form-output-global" data-form-type="subscribe" method="post" action="bat/rd-mailform.php">
+                    <form class="rd-mailform rd-mailform-inline form-center" data-form-output="form-output-global" data-form-type="subscribe" method="post" action="https://script.google.com/macros/s/AKfycbxahrkCfsQy6erLzivF-2cQFl1NXsi-NVoo1pGB5gab8-jJa30SYS0KFfzCAm5b-__c_w/exec">
                       <div class="form-wrap">
                         <input class="form-input" id="subscribe-email" type="email" name="email" data-constraints="@Email @Required">
                         <label class="form-label" for="subscribe-email">Enter your e-mail</label>
