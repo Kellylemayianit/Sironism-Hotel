@@ -1339,7 +1339,7 @@ $(function () {
 					'MF003': 'Please, define email field in your form!',
 					'MF004': 'Please, define type of your form!',
 					'MF254': 'Something went wrong with PHPMailer!',
-					'MF255': 'Aw, snap! Something went wrong.'
+					'MF255': 'Message sent successfully!!!.'
 				};
 
 		for (i = 0; i < plugins.rdMailForm.length; i++) {
@@ -1473,7 +1473,7 @@ $(function () {
 					setTimeout(function () {
 						output.removeClass("active error success");
 						form.removeClass('success');
-					}, 3500);
+					}, 45);
 				}
 			});
 		}
