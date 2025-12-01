@@ -10,6 +10,7 @@
    <meta name="description" content="Sironosim Gardens Hotel is the ideal base for your family or large group safari. We offer flexible accommodation with **Single, Twin, and Double Rooms** to keep your entire party together and comfortable. Located in **Kimana**, enjoy an authentic **Kilimanjaro view**, modern dining, 24/7 solar power, and free dedicated Wi-Fi. Book your spacious, high-quality stay near **Amboseli National Park** today!">
     <meta name="keywords" content="Sironosim Gardens hotel ltd, Kimana hotels, Amboseli accommodation, Mount Kilimanjaro view hotel, family friendly hotel Kimana, group accommodation Amboseli, spacious rooms Kimana, Single Twin Double rooms, safari lodging Kimana, Sopa Lodge Amboseli area, luxury hotel Kimana, best hotels near me, best accommodation near me">
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/chat.css">
     <!-- Stylesheets-->
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lato:400,700,400italic%7CPoppins:300,400,500,700">
     <link rel="stylesheet" href="css/bootstrap.css">
@@ -418,11 +419,32 @@
         </div>
       </div>
     </div>
+  
+  <div id="chat-container">
+    <button id="chat-toggle-btn" class="chat-btn">
+        <span class="chat-icon">💬</span>
+    </button>
+
+    <div id="chat-window" class="chat-window-hidden">
+        <div class="chat-header">
+            Sironosim AI Assistant
+            <button id="chat-close-btn" class="chat-close-btn">×</button>
+        </div>
+        <div id="chat-messages" class="chat-messages">
+            <div class="chat-message bot-message">
+                Welcome to Sironosim Gardens Hotel. How may I help you today?
+            </div>
+        </div>
+        <div class="chat-input-area">
+            <input type="text" id="chat-input" placeholder="Ask a question..." class="chat-input">
+            <button id="chat-send-btn" class="chat-send-btn">Send</button>
+        </div>
+    </div>
+</div>
+  
     <!-- Javascript-->
     <script src="js/core.min.js"></script>
     <script src="js/script.js"></script>
-    <!--Coded by Drel-->  
-  <script id="messenger-widget-b" src="https://cdn.botpenguin.com/website-bot.js" defer>6912f58dc53b1604ac42bdcb,6912f542e9437105db53f246</script>
-  
+    <script src="js/chat.js"></script>
   </body>
 </html>

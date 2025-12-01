@@ -11,6 +11,7 @@
     <meta name="description" content="Satisfy your appetite at our modern on-site restaurant, offering a delightful range of food and beverages throughout the day. We ensure a great start to your morning with our varied breakfast service, featuring a generous buffet, tempting à la carte selections, and a hearty Full English/Irish option. Unwind after a day of exploring at our comfortable bar and lounge facilities. For ultimate convenience, room service is available for in-room dining. We also provide comprehensive banquet and outside catering services for events.">
     <meta name="keywords" content=",Sironosim Gardens hotel ltd, best hotels near me,best accommodation near me,hotels and accommodation in Kimana,Best Kimana hotels and accommodation,hotels and accommodation near Amboseli National Park ,hotels and accommodation near Mt. Kilimanjaro,hotels and accommodation near Serengeti National Park, hotels and accommodation near serengeti national park , hotels and accommodation  near sopa lodge amboseli "> 
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/chat.css">
     <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-V7YJFZZLCL"></script>
 <script>
@@ -111,8 +112,8 @@
               </div>
             </div>
             <div class="cell-sm-6 cell-md-5 wow fadeInUp" data-wow-delay=".2s">
-              <h3>Tired of your daily routine?</h3>
-              <p>Seeking for a place to stay and rest with your family? You are in the right place! Our rooms and hotel provides luxury and historic accommodations for travelers. It combines modern style and amenities with traditional values.</p>
+              <h3>A Few Words About Us</h3>
+              <p>Tired of your daily routine? Seeking for a place to stay and rest with your family? You are in the right place! Our rooms and hotel provides luxury and historic accommodations for travelers. It combines modern style and amenities with traditional values.</p>
               <p>All rooms are equipped with all rooms are equipped with a 24/7 solar back up. Free WI-FI service is available throughout the territory of the hotel. Our restaurant food and meals from world cuisines unite people connecting history and traditions. Experience our warm hospitality, high quality of service and exceptional comfort! Make a reservation for your dream vacation today!</p><a class="button button-primary button button-square button-effect-ujarak button-lg" href="https://www.facebook.com/profile.php?id=61560420796344" ><span>read more</span></a>
             </div>
           </div>
@@ -347,9 +348,30 @@
         </div>
       </div>
     </div>
+     <div id="chat-container">
+    <button id="chat-toggle-btn" class="chat-btn">
+        <span class="chat-icon">💬</span>
+    </button>
+
+    <div id="chat-window" class="chat-window-hidden">
+        <div class="chat-header">
+            Sironosim AI Assistant
+            <button id="chat-close-btn" class="chat-close-btn">×</button>
+        </div>
+        <div id="chat-messages" class="chat-messages">
+            <div class="chat-message bot-message">
+                Welcome to Sironosim Gardens Hotel. How may I help you today?
+            </div>
+        </div>
+        <div class="chat-input-area">
+            <input type="text" id="chat-input" placeholder="Ask a question..." class="chat-input">
+            <button id="chat-send-btn" class="chat-send-btn">Send</button>
+        </div>
+    </div>
+</div>
     <!-- Javascript-->
-      <script id="messenger-widget-b" src="https://cdn.botpenguin.com/website-bot.js" defer>6912f58dc53b1604ac42bdcb,6912f542e9437105db53f246</script>
-      <script src="js/core.min.js"></script>
+    <script src="js/core.min.js"></script>
     <script src="js/script.js"></script>
+    <script src="js/chat.js"></script>
   </body>
 </html>

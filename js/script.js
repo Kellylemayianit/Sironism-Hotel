@@ -1672,5 +1672,6 @@ $(function () {
 			initDynamicLightGallery(plugins.lightDynamicGalleryItem[i]);
 		}
 	}
+	
 }());
 
